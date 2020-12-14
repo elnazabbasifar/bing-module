@@ -37,6 +37,7 @@ class BingBackground():
 
         # Form the URL for the image
         image_data = json_data['images']
+        print(image_data)
         # image_date = image_data[0]["startdate"]
         image_url = image_data[0]["url"].split("&")[0]
         full_url = "https://www.bing.com" + image_url
@@ -50,7 +51,9 @@ class BingBackground():
 
     def get_list_of_urls(self, start=0, end=7):
 
-        
+        assert start <= end, "first number <= last number is allowed"
+        # n= (end - start)+1
+        # return self.get_image_url(0, n)
         url_list = []
         for i in range(start, end+1):
             self.day=i
